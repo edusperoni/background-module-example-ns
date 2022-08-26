@@ -1,11 +1,19 @@
 <ActionBar title="My App"> </ActionBar>
 
 <GridLayout>
-  <ListView [items]="items">
-    <ng-template let-item="item">
-      <StackLayout [nsRouterLink]="['/item', item.id]">
-        <Label [text]="item.name"></Label>
-      </StackLayout>
-    </ng-template>
-  </ListView>
+  <StackLayout>
+    <Label text="Hello Angular Nation!" class="h2 m-x-auto"></Label>
+    <Label text="Last received message:" class="m-x-auto"></Label>
+    <Label
+      [text]="receivedSms$ | async"
+      textWrap="true"
+      class="m-x-auto"
+    ></Label>
+
+    <Label
+      [text]="'ng instance created at ' + (createdTime | date: 'HH:mm:ss')"
+      textWrap="true"
+      class="m-x-auto"
+    ></Label>
+  </StackLayout>
 </GridLayout>
